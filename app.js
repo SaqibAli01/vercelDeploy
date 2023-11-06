@@ -41,11 +41,9 @@ passport.deserializeUser(function (id, done) {
 
 //frontend connect
 app.use(express.static(path.join(path.resolve(), "build")));
-const res = sendFile(path.join(path.resolve(), "build/index.html"));
-console.log("🚀 ~ file: app.js:45 ~ res:", res);
 
-// app.get("/*", (req, res) => {
-//     res.status(200).sendFile(path.join(path.resolve(), "build/index.html"));
-// });
+app.get("/*", (req, res) => {
+  res.status(200).sendFile(path.join(path.resolve(), "build/index.html"));
+});
 
 export default app;
